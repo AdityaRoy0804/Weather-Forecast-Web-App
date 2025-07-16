@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Aditya's - Weather App</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="#" class="active" onclick="showTab('currentTab', this)">Today</a></li>
+      <li><a href="#" onclick="showTab('forecastTab', this)">Forecast</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+
+    <!-- Tab 1: Today's Weather -->
+    <div id="currentTab" class="tab-content active-tab">
+      <h1>🌦 Weather Guide</h1>
+      <hr/>
+      <h2><strong>Please Enter the city name :</strong></h2>
+      <div class="input-wrapper">
+        <input type="text" id="cityInput" placeholder="Enter city name">
+        <div id="suggestion-cityInput" class="suggestion-box"></div>
+      </div>
+      <button onclick="getWeather()">Get Weather</button>
+      <div id="weatherResult"></div>
+    </div>
+
+    <!-- Tab 2: Forecast -->
+    <div id="forecastTab" class="tab-content">
+      <h1>🌦 Forecast Prediction</h1>
+      <hr/>
+      <h2><strong>Please Enter the city :</strong></h2>
+      <div class="input-wrapper">
+        <input type="text" id="forecastCity" placeholder="Enter city name">
+        <div id="suggestion-forecastCity" class="suggestion-box"></div>
+      </div>
+      <input type="number" id="forecastDays" min="1" max="3" placeholder="Enter days (1 to 3 max)">
+      <button onclick="getForecast()">Get Forecast</button>
+      <div class="chart-wrapper">
+        <canvas id="forecastChart" width="1000" height="300"></canvas>
+      </div>
+
+      <button onclick="toggleForecastReport()">Show Complete Report</button>
+
+      <div id="forecastReport" style="display: none; margin-top: 20px;" class="forecast-report-box">
+        <!-- Forecast textual data will be injected here -->
+      </div>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
